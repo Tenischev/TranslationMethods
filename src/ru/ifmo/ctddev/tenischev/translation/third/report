@@ -1,0 +1,27 @@
+Взятое подможество языка Pascal
+* Переменные
+* Типы - integer, double, boolean
+* Процедуры
+* Функции read, write, writeln
+* Оператор ветвления if then else
+* Операторы цикла while-do, for-do, repeat-until
+* Операция присвоения
+NOTE : Код программы только в нижнем регистре
+
+Стартовое правило - program
+defs - блок глобальных переменных и прцоедур
+  varDef - блок глобальных переменных
+  procDef - блок процедур
+block - описывает блок begin-end
+  line - описывает возможные типы строк
+    methodCall - вызов процедуры
+    assigment - присвоение
+    forLoop - цикл for
+    repeatUntil - цикл repeat-until
+    whileLoop - цикл while-do
+    ifStatement - оператор ветвления if-then-else
+    expression... - описывает возможное выражение в соответсвии с приоритетом операций
+    read - функция read
+    write[ln] - функция write[ln]
+
+Обработку осуществляет класс ToCPlusPlus реализующий PascalLisener

@@ -1,0 +1,49 @@
+var
+a, aa : integer;
+d1, d2 : double;
+b1, b2 : boolean;
+
+procedure foo(test : integer; moo: boolean);
+var
+ li1, li2 : integer;
+ lb1, lb2 : boolean;
+begin
+  li2 := (li1 + 10) div 4;
+  write(li2, lb1 = lb2);
+end;
+
+procedure fooo();
+begin
+  d1 := d1 + d2 + 0.5;
+end;
+
+begin
+  read(a, aa);
+  a := aa + 1;
+  b2 := (a > 5) and (b1 = false);
+  while a > 0 do
+    begin
+      a := a - 1;
+      aa := aa;
+    end;
+  repeat
+    a := a + 1;
+    aa := a - 1
+  until a < 10;
+  for aa := 1 to 10 step 3 do
+    if aa mod 2 = 0 then
+      write(2)
+    else if b1 = true then
+      begin
+        b1 := false;
+        b2 := not (b1);
+      end;
+  for a := 10 downto 5 step aa do
+    begin
+      writeln(a + aa);
+      aa := a div 3;
+    end;
+  foo(a, b1);
+  fooo();
+  write(d1);
+end.
