@@ -1,0 +1,43 @@
+# Test comments
+# Special reserved SKIP syntax for character whom must be skip
+PLUS : \\+;
+MINUS : \\-;
+POWER : \\^;
+STAR : \\*;
+OP : \\(;
+CP : \\);
+NUMBER : [0-9]+;
+SKIP : [ \t\r\n]+;
+
+start : val . Integer
+      | t e {val = _1.val + _2.val;}
+      ;
+
+e : val . Integer
+   | MINUS t e {val = - _2.val + _3.val;}
+   | PLUS t e {val = _2.val + _3.val;}
+   | {val = 0;}
+   ;
+
+t : val . Integer
+  | n tt {val = _1.val * _2.val;}
+  ;
+
+tt : val . Integer
+   | STAR n tt {val = _2.val * _3.val;}
+   | {val = 1;}
+   ;
+
+n : val . Integer
+  | NUMBER step { val = (int)Math.pow(Integer.parseInt(_1), _2.val); }
+  ;
+
+step : val . Integer
+     | POWER stepp {val = _2.val;}
+     | { val = 1; }
+     ;
+
+stepp : val . Integer
+      | OP start CP {val = _2.val;}
+      | n {val = _1.val;}
+      ;

@@ -18,11 +18,15 @@ public class Tree {
 
     public Tree(String node, Tree... children) {
         this.node = node;
-        this.children = Arrays.asList(children);
+        if (children == null)
+            this.children = new ArrayList<>();
+        else
+            this.children = Arrays.asList(children);
     }
 
-    public Tree(String node) {
-        this.node = node;
-        children = new ArrayList<>();
+    class E extends Tree {
+        public E(String node, Tree... children) {
+            super(node, children);
+        }
     }
 }

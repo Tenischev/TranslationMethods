@@ -1,0 +1,30 @@
+# Test comments
+# Syntax rule must be valid regExp
+NUMBER : [0-9]+;
+OPERATION : ([+]|[-]|[*]);
+# Special reserved 'SKIP' syntax for character whom must be skip
+SKIP : [ \t\r\n]+;
+
+# Special reserved 'start' rule - start non-terminal of grammar
+start : NUMBER ee;
+ee : f
+   |
+   ;
+f : start OPERATION ff;
+ff : f
+   |
+   ;
+
+# Attribute syntax
+# Non-terminal : name . Type
+# Non-terminal : some rule { compute attribute }
+attr : val . Integer
+     | attrOne attrTwo {val = _1.val + _2.val;}
+     ;
+attrOne : val . Integer
+        | acc . Double
+        | NUMBER
+        ;
+attrTwo : val . Integer
+        | NUMBER
+        ;
